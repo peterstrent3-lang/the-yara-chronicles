@@ -406,6 +406,15 @@
       @media (prefers-color-scheme: dark) { .ap-switch[aria-checked="true"] .track::after { background: #101a12; } }
       .ap-switch .ap-state { font-weight: 700; font-size: 15px; min-width: 28px; text-align: left; }
       .audio-row audio { width: 100%; display: block; margin-top: 4px; }
+      /* ---------- -15s / +15s skip buttons (simple direct seek) ---------- */
+      .skip-row { display: flex; gap: 10px; margin-top: 10px; }
+      .skip-btn {
+        flex: 1 1 0; min-height: 48px; padding: 10px 14px;
+        font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+        color: var(--text); background: var(--surface);
+        border: 1.5px solid var(--border); border-radius: 10px;
+      }
+      .skip-btn:active { background: var(--accent-soft); border-color: var(--gold); }
       /* ---------- now playing bar (always reachable stop) ---------- */
       .now-bar {
         position: fixed; left: 12px; right: 12px; z-index: 80;
@@ -867,6 +876,10 @@
             <div class="audio-row" data-title="the prologue">
               <div class="a-head"><span>🎧 Listen — the prologue</span><span>6 min 39 sec</span></div>
               <audio class="chapter-audio" controls preload="auto" src="assets/prologue.mp3" aria-label="Listen to the prologue — audiobook version, 6 minutes 39 seconds"></audio>
+              <div class="skip-row">
+                <button type="button" class="skip-btn" data-skip="-15" aria-label="Go back 15 seconds">−15s</button>
+                <button type="button" class="skip-btn" data-skip="15" aria-label="Go forward 15 seconds">+15s</button>
+              </div>
             </div>
             <details class="reader">
               <summary>Read the prologue (about 1,160 words)</summary>
@@ -916,6 +929,10 @@
             <div class="audio-row" data-title="Chapter 1">
               <div class="a-head"><span>🎧 Listen — Chapter 1</span><span>24 min 18 sec</span></div>
               <audio class="chapter-audio" controls preload="auto" src="assets/chapter-1.mp3" aria-label="Listen to Chapter 1, The Green Place — audiobook version, 24 minutes 18 seconds"></audio>
+              <div class="skip-row">
+                <button type="button" class="skip-btn" data-skip="-15" aria-label="Go back 15 seconds">−15s</button>
+                <button type="button" class="skip-btn" data-skip="15" aria-label="Go forward 15 seconds">+15s</button>
+              </div>
             </div>
             <details class="reader">
               <summary>Read Chapter 1 (about 4,260 words)</summary>
@@ -1008,6 +1025,10 @@
             <div class="audio-row" data-title="Chapter 2">
               <div class="a-head"><span>🎧 Listen — Chapter 2</span><span>16 min 46 sec</span></div>
               <audio class="chapter-audio" controls preload="auto" src="assets/chapter-2.mp3" aria-label="Listen to Chapter 2, Mentors Before Trackers — audiobook version, 16 minutes 46 seconds"></audio>
+              <div class="skip-row">
+                <button type="button" class="skip-btn" data-skip="-15" aria-label="Go back 15 seconds">−15s</button>
+                <button type="button" class="skip-btn" data-skip="15" aria-label="Go forward 15 seconds">+15s</button>
+              </div>
             </div>
             <details class="reader">
               <summary>Read Chapter 2 (about 3,180 words)</summary>
@@ -1088,6 +1109,10 @@
             <div class="audio-row" data-title="Chapter 3">
               <div class="a-head"><span>🎧 Listen — Chapter 3</span><span>23 min 2 sec</span></div>
               <audio class="chapter-audio" controls preload="auto" src="assets/chapter-3.mp3" aria-label="Listen to Chapter 3, The First Hunt — audiobook version, 23 minutes 2 seconds"></audio>
+              <div class="skip-row">
+                <button type="button" class="skip-btn" data-skip="-15" aria-label="Go back 15 seconds">−15s</button>
+                <button type="button" class="skip-btn" data-skip="15" aria-label="Go forward 15 seconds">+15s</button>
+              </div>
             </div>
             <details class="reader">
               <summary>Read Chapter 3 (about 4,100 words)</summary>
@@ -1180,6 +1205,10 @@
             <div class="audio-row" data-title="Chapter 4">
               <div class="a-head"><span>🎧 Listen — Chapter 4</span><span>29 min 22 sec</span></div>
               <audio class="chapter-audio" controls preload="auto" src="assets/chapter-4.mp3" aria-label="Listen to Chapter 4, The Night Trails — audiobook version, 29 minutes 22 seconds"></audio>
+              <div class="skip-row">
+                <button type="button" class="skip-btn" data-skip="-15" aria-label="Go back 15 seconds">−15s</button>
+                <button type="button" class="skip-btn" data-skip="15" aria-label="Go forward 15 seconds">+15s</button>
+              </div>
             </div>
             <details class="reader">
               <summary>Read Chapter 4 (about 5,330 words)</summary>
@@ -1289,6 +1318,10 @@
             <div class="audio-row" data-title="Chapter 5">
               <div class="a-head"><span>🎧 Listen — Chapter 5</span><span>32 min 42 sec</span></div>
               <audio class="chapter-audio" controls preload="auto" src="assets/chapter-5.mp3" aria-label="Listen to Chapter 5, The East Trail Is Hers — audiobook version, 32 minutes 42 seconds"></audio>
+              <div class="skip-row">
+                <button type="button" class="skip-btn" data-skip="-15" aria-label="Go back 15 seconds">−15s</button>
+                <button type="button" class="skip-btn" data-skip="15" aria-label="Go forward 15 seconds">+15s</button>
+              </div>
             </div>
             <details class="reader">
               <summary>Read Chapter 5 (about 6,040 words)</summary>
@@ -1409,6 +1442,10 @@
             <div class="audio-row" data-title="Chapter 6">
               <div class="a-head"><span>🎧 Listen — Chapter 6</span><span>35 min 53 sec</span></div>
               <audio class="chapter-audio" controls preload="auto" src="assets/chapter-6.mp3" aria-label="Listen to Chapter 6, The Woman by the River — audiobook version, 35 minutes 53 seconds"></audio>
+              <div class="skip-row">
+                <button type="button" class="skip-btn" data-skip="-15" aria-label="Go back 15 seconds">−15s</button>
+                <button type="button" class="skip-btn" data-skip="15" aria-label="Go forward 15 seconds">+15s</button>
+              </div>
             </div>
             <details class="reader">
               <summary>Read Chapter 6 (about 6,430 words)</summary>
@@ -1863,8 +1900,11 @@
            Every prologue / chapter player below is a plain
            <audio controls> element. Play/pause, the seek bar,
            time display and volume are the browser's own built-in
-           controls — there is no custom skip, seek, pending-target
-           or download logic in this page any more.
+           controls — there is no pending-target or download
+           logic in this page any more. The -15s / +15s buttons
+           below each chapter player are a plain direct seek:
+           one click sets that chapter's audio currentTime by
+           exactly 15 seconds, clamped to 0 and to the duration.
            The only scripting left for chapter audio is:
              - an autoplay toggle (OFF by default) that, when the
                listener turns it on, plays the next chapter when
@@ -1881,6 +1921,26 @@
             if (autoplayState) autoplayState.textContent = autoplayOn ? "On" : "Off";
           });
         }
+
+        /* ---------- -15s / +15s skip buttons ----------
+           One direct currentTime set in the click handler, clamped
+           to 0 and to the chapter duration. No blob/download
+           machinery, no pending targets, no retries — seeking
+           works in a normal browser (Chrome on GitHub Pages). */
+        Array.prototype.forEach.call(document.querySelectorAll(".skip-btn"), function (btn) {
+          btn.addEventListener("click", function () {
+            var row = btn.closest ? btn.closest(".audio-row") : null;
+            if (!row) return;
+            var a = row.querySelector(".chapter-audio");
+            if (!a) return;
+            var delta = parseFloat(btn.getAttribute("data-skip")) || 0;
+            var target = (a.currentTime || 0) + delta;
+            if (!isFinite(target)) target = 0;
+            if (target < 0) target = 0;
+            if (isFinite(a.duration) && a.duration > 0 && target > a.duration) target = a.duration;
+            try { a.currentTime = target; } catch (e) {}
+          });
+        });
 
         var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         var chapterAudios = Array.prototype.slice.call(document.querySelectorAll(".chapter-audio"));
