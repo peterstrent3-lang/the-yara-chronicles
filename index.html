@@ -193,6 +193,29 @@
         background: transparent; color: #fff;
       }
 
+      /* ---------- map, portraits, quiz, downloads ---------- */
+      .map-figure { margin: 18px 0 0; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+      .map-figure img { display: block; width: 100%; cursor: pointer; }
+      .map-figure figcaption { padding: 14px 16px 16px; }
+      .map-figure h3 { font-family: var(--serif); font-size: 19px; margin: 0 0 4px; }
+      .map-figure p { font-size: 15px; margin: 8px 0 0; }
+      .map-figure .view-btn { margin-top: 10px; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; padding: 7px 13px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); }
+      .pic-card.portrait img { aspect-ratio: 3 / 4; }
+      .quiz { margin-top: 18px; padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; max-width: 640px; }
+      .quiz-progress { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0 0 8px; }
+      .quiz-q { font-family: var(--serif); font-size: 21px; margin: 0 0 14px; line-height: 1.35; }
+      .quiz-answers { display: grid; gap: 10px; }
+      .quiz-answers button { text-align: left; font: inherit; font-size: 15px; line-height: 1.45; cursor: pointer; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); }
+      .quiz-answers button:hover { border-color: var(--accent); }
+      .quiz-result { margin-top: 6px; }
+      .quiz-result h3 { font-size: 26px; margin: 4px 0 8px; }
+      .quiz-result p { font-size: 16px; line-height: 1.6; }
+      .quiz-result .btn { margin-top: 12px; }
+      .dl-list { list-style: none; margin: 18px 0 0; padding: 0; max-width: 640px; }
+      .dl-list li { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--border); }
+      .dl-list a { font-weight: 700; color: var(--text); }
+      .dl-list span { font-size: 14px; color: var(--dim); }
+
       /* ---------- announcements ---------- */
       .announce-list { list-style: none; margin: 18px 0 0; padding: 0; max-width: 760px; }
       .announce-list li {
@@ -525,6 +548,10 @@
           <a href="#world">Kijani &amp; the Vey'kar</a>
           <a href="#outline">Outline</a>
           <a href="#pictures">Pictures</a>
+          <a href="#map">Map</a>
+          <a href="#portraits">Portraits</a>
+          <a href="#quiz">Quiz</a>
+          <a href="#downloads">Downloads</a>
           <a href="#culture">Language &amp; Culture</a>
           <a href="#announcements">Announcements</a>
           <a href="#voices">Voices</a>
@@ -1639,6 +1666,147 @@
         <button type="button" class="lb-close" id="lbClose">Close</button>
       </div>
 
+      <!-- ================= MAP OF KIJANI ================= -->
+      <section class="block" id="map">
+        <div class="wrap">
+          <p class="kicker">Map</p>
+          <h2 class="section-title">Map of Kijani</h2>
+          <p class="section-intro">Where is everything in the hidden village? This is one imagined map of Kijani — the old stone temple at the centre, Oya's hut beside it, Amara's healing hut by the river, the hunters' shelters up in the trees, and the training ground at the edge of the clearing, all ringed by thick jungle. It is a picture made for fun, <strong>not</strong> a book illustration: the book has no map in it, so this is just one way to picture the village.</p>
+          <figure class="map-figure">
+            <img src="assets/kijani-map.webp" alt="An illustrated map of Kijani — the old stone temple at the centre, Oya's hut nearby, Amara's healing hut by the river, hunters' shelters in the trees, the training ground at the edge, and hidden trails winding through thick jungle" data-full="assets/kijani-map.webp" data-caption="An imagined map of Kijani — the temple at its centre, Oya's hut beside it, Amara's healing hut by the river, tree shelters above, and the training ground at the clearing's edge. Made for fun, not a book illustration." />
+            <figcaption>
+              <h3>The village, as imagined</h3>
+              <p>Temple at the centre, river along one side, jungle all around — and no road in or out, only hidden trails that change with the seasons.</p>
+              <button type="button" class="view-btn">View large</button>
+            </figcaption>
+          </figure>
+          <p class="pic-note">Imagined map for fun — the book itself has no map. <a href="#world">Read about Kijani →</a></p>
+        </div>
+      </section>
+
+      <!-- ================= PORTRAITS ================= -->
+      <section class="block" id="portraits">
+        <div class="wrap">
+          <p class="kicker">Portraits</p>
+          <h2 class="section-title">The people of Kijani</h2>
+          <p class="section-intro">What do they look like? These are imagined portraits of the eight people at the heart of the story — made for fun, <strong>not</strong> book illustrations. The book describes them in words; these pictures are just one way to see them.</p>
+          <div class="pic-grid" id="portraitGrid">
+            <figure class="pic-card portrait">
+              <img src="assets/portrait-yara.webp" alt="Portrait of Yara — seventeen years old, long dark braids bound in gold, warm brown skin, faint glowing blue markings, amber eyes, gold-and-bone armor" data-full="assets/portrait-yara.webp" data-caption="Yara, 17 — half human, half Vey'kar. Brave, curious, and still learning where she belongs." />
+              <figcaption>
+                <h3>Yara</h3>
+                <span class="mood">17 · Half human, half Vey'kar</span>
+                <p>Brave, curious, and caught between two worlds — she wants to belong, and she wants to earn it.</p>
+                <button type="button" class="view-btn">View large</button>
+              </figcaption>
+            </figure>
+            <figure class="pic-card portrait">
+              <img src="assets/portrait-oya.webp" alt="Portrait of Oya — late thirties, taller and broader, longer braids with more gold, brighter glowing markings, battle-worn bone-and-gold armor, amber eyes, stern and proud" data-full="assets/portrait-oya.webp" data-caption="Oya, late 30s — queen and founder of Kijani. Strong, protective, and proud." />
+              <figcaption>
+                <h3>Oya</h3>
+                <span class="mood">Late 30s · Queen of Kijani</span>
+                <p>Strong, protective, and proud — the village is safe because she stands watch over it.</p>
+                <button type="button" class="view-btn">View large</button>
+              </figcaption>
+            </figure>
+            <figure class="pic-card portrait">
+              <img src="assets/portrait-ayo.webp" alt="Portrait of Jonah Noah Moses, called Ayo — a human man in his early thirties, kind curious face, simple field clothes, no armor" data-full="assets/portrait-ayo.webp" data-caption="Jonah Noah Moses, called Ayo — Yara's missing father. A kind, curious human explorer." />
+              <figcaption>
+                <h3>Jonah Noah Moses · Ayo</h3>
+                <span class="mood">Early 30s · Human explorer</span>
+                <p>A kind, curious human explorer — and the mystery at the heart of the book.</p>
+                <button type="button" class="view-btn">View large</button>
+              </figcaption>
+            </figure>
+            <figure class="pic-card portrait">
+              <img src="assets/portrait-zola.webp" alt="Portrait of Zola — seventeen, shorter and stockier, shorter messier braids with bone beads, bright glowing markings, practical dirty hunter gear, loud confident grin" data-full="assets/portrait-zola.webp" data-caption="Zola, 17 — Yara's best friend and the best tracker her age. Loud, loyal, and reckless." />
+              <figcaption>
+                <h3>Zola</h3>
+                <span class="mood">17 · Tracker</span>
+                <p>Yara's best friend and the best tracker her age. Loud, loyal, and reckless — she'd follow Yara anywhere.</p>
+                <button type="button" class="view-btn">View large</button>
+              </figcaption>
+            </figure>
+            <figure class="pic-card portrait">
+              <img src="assets/portrait-jabari.webp" alt="Portrait of Jabari — late sixties, big scarred older warrior, graying braids with bone and iron bands, faded deep markings, carrying a spear, proud and traditional" data-full="assets/portrait-jabari.webp" data-caption="Jabari, late 60s — rival elder of the old ways. Proud, traditional, and unshakable." />
+              <figcaption>
+                <h3>Jabari</h3>
+                <span class="mood">Late 60s · Elder hunter</span>
+                <p>Rival elder of the old ways. Proud, traditional, and unshakable — the old laws kept the village alive.</p>
+                <button type="button" class="view-btn">View large</button>
+              </figcaption>
+            </figure>
+            <figure class="pic-card portrait">
+              <img src="assets/portrait-amara.webp" alt="Portrait of Amara — early fifties, braids worn up with shells and seeds, pale blue-green healer markings, a healer satchel, calm and wise" data-full="assets/portrait-amara.webp" data-caption="Amara, early 50s — mentor and healer. Calm, wise, and kind." />
+              <figcaption>
+                <h3>Amara</h3>
+                <span class="mood">Early 50s · Healer</span>
+                <p>Mentor and healer. Calm, wise, and kind — she knows more about Ayo than she lets on.</p>
+                <button type="button" class="view-btn">View large</button>
+              </figcaption>
+            </figure>
+            <figure class="pic-card portrait">
+              <img src="assets/portrait-dane.webp" alt="Portrait of Dane Mercer — a human man in his early forties, tall lean and weathered, buzzed hair, a scar through one eyebrow, camo tactical clothes, holding a rifle, cold and watchful" data-full="assets/portrait-dane.webp" data-caption="Dane Mercer, early 40s — human trophy hunter. Patient, obsessive, and too close to Kijani." />
+              <figcaption>
+                <h3>Dane Mercer</h3>
+                <span class="mood">Early 40s · The threat</span>
+                <p>Human trophy hunter. Patient, obsessive, and too close to Kijani for comfort.</p>
+                <button type="button" class="view-btn">View large</button>
+              </figcaption>
+            </figure>
+            <figure class="pic-card portrait">
+              <img src="assets/portrait-elena.webp" alt="Portrait of Elena Ruiz — a human woman in her late twenties, warm brown skin, dark curly hair in a ponytail, field clothes and a ranger vest, holding a notebook, kind and curious" data-full="assets/portrait-elena.webp" data-caption="Elena Ruiz, late 20s — wildlife researcher and ranger. Kind, curious, and brave." />
+              <figcaption>
+                <h3>Elena Ruiz</h3>
+                <span class="mood">Late 20s · Human ally</span>
+                <p>Wildlife researcher and ranger. Kind, curious, and brave — the first human Yara chose to trust.</p>
+                <button type="button" class="view-btn">View large</button>
+              </figcaption>
+            </figure>
+          </div>
+          <p class="pic-note">Imagined portraits for fun — the book stays words and audio. <a href="#cast">Meet the cast →</a></p>
+        </div>
+      </section>
+
+      <!-- ================= QUIZ ================= -->
+      <section class="block" id="quiz">
+        <div class="wrap">
+          <p class="kicker">Just for fun</p>
+          <h2 class="section-title">Which Vey'kar are you?</h2>
+          <p class="section-intro">Five questions, one answer each — and at the end, the quiz tells you which of Kijani's hunters you're most like. This is only for fun: it isn't part of the book, and it doesn't change the story.</p>
+          <div class="quiz" id="quizBox">
+            <p class="quiz-progress" id="quizProgress">Question 1 of 5</p>
+            <h3 class="quiz-q" id="quizQuestion"></h3>
+            <div class="quiz-answers" id="quizAnswers"></div>
+            <div class="quiz-result" id="quizResult" hidden>
+              <p class="kicker">You are…</p>
+              <h3 class="font-display" id="quizResultName"></h3>
+              <p id="quizResultLine"></p>
+              <button type="button" class="btn btn-primary" id="quizAgain">Play again</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= DOWNLOADS ================= -->
+      <section class="block" id="downloads">
+        <div class="wrap">
+          <p class="kicker">Take it with you</p>
+          <h2 class="section-title">Download the chapters</h2>
+          <p class="section-intro">The prologue and the six chapters written so far, as PDFs — free to download, read offline, or print for yourself. Chapter titles are drafts for now.</p>
+          <ul class="dl-list">
+            <li><a href="assets/pdfs/prologue.pdf" download>Prologue</a> <span>4 pages · ~613 KB</span></li>
+            <li><a href="assets/pdfs/chapter-1.pdf" download>Chapter 1 — The Green Place</a> <span>10 pages · ~520 KB</span></li>
+            <li><a href="assets/pdfs/chapter-2.pdf" download>Chapter 2 — Mentors Before Trackers</a> <span>10 pages · ~627 KB</span></li>
+            <li><a href="assets/pdfs/chapter-3.pdf" download>Chapter 3 — The First Hunt</a> <span>10 pages · ~574 KB</span></li>
+            <li><a href="assets/pdfs/chapter-4.pdf" download>Chapter 4 — The Night Trails</a> <span>10 pages · ~4.9 MB</span></li>
+            <li><a href="assets/pdfs/chapter-5.pdf" download>Chapter 5 — The East Trail Is Hers</a> <span>10 pages · ~91 KB</span></li>
+            <li><a href="assets/pdfs/chapter-6.pdf" download>Chapter 6 — The Woman by the River</a> <span>10 pages · ~91 KB</span></li>
+          </ul>
+          <p class="pic-note">These are the author's drafts, shared free for readers. Please don't repost or sell them. <a href="#read">Read them on this site →</a></p>
+        </div>
+      </section>
+
       <!-- ================= LANGUAGE & CULTURE ================= -->
       <section class="block" id="culture">
         <div class="wrap">
@@ -1691,6 +1859,11 @@
           <p class="section-intro">The latest news about the book, newest first.</p>
           <!-- To add a new announcement, copy one <li> below, paste it at the top of this list, and change the date, title, and text. -->
           <ul class="announce-list">
+            <li>
+              <time datetime="2026-11-07">Nov 7, 2026</time>
+              <h3>New: Map, Portraits, Quiz &amp; Chapter Downloads</h3>
+              <p>Four new extras — an illustrated map of Kijani, portraits of all eight characters, a “Which Vey'kar are you?” quiz, and the prologue and Chapters 1–6 as PDFs to download and keep. The map and portraits are imagined for fun, not book illustrations.</p>
+            </li>
             <li>
               <time datetime="2026-11-07">Nov 7, 2026</time>
               <h3>New: Language &amp; Culture</h3>
@@ -2473,6 +2646,141 @@
           lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
           document.addEventListener("keydown", function (e) {
             if (e.key === "Escape" && lb.classList.contains("open")) closeLb();
+          });
+        })();
+
+        /* ---------- Quiz: Which Vey'kar are you? ---------- */
+        (function () {
+          var box = document.getElementById("quizBox");
+          if (!box) return;
+          var QUESTIONS = [
+            {
+              q: "It's dawn in Kijani. What's the first thing you do?",
+              a: [
+                { t: "Head for the trail — I want to prove I belong out there.", c: "yara" },
+                { t: "Grab my gear and drag my best friend along for a hunt.", c: "zola" },
+                { t: "Walk the old paths and check the trails, the way it's always been done.", c: "jabari" },
+                { t: "Gather herbs by the river while the village wakes.", c: "amara" }
+              ]
+            },
+            {
+              q: "A stranger is spotted near the village. You…",
+              a: [
+                { t: "Take charge. The village's safety comes first — no arguments.", c: "oya" },
+                { t: "Want to know who they are and why they're here before anyone acts.", c: "yara" },
+                { t: "Drive them off. Humans brought nothing but trouble before.", c: "jabari" },
+                { t: "Watch, listen — and tend to anyone who gets hurt.", c: "amara" }
+              ]
+            },
+            {
+              q: "What matters most to you?",
+              a: [
+                { t: "Belonging — being accepted for who I am, not what I am.", c: "yara" },
+                { t: "Family and the village. Protecting my people is everything.", c: "oya" },
+                { t: "Loyalty — my friends know I'll always have their back.", c: "zola" },
+                { t: "The old laws. They kept us alive this long for a reason.", c: "jabari" }
+              ]
+            },
+            {
+              q: "Your friends would say you are…",
+              a: [
+                { t: "Reckless — but the best tracker in the village.", c: "zola" },
+                { t: "The calm one — the person everyone comes to when things go wrong.", c: "amara" },
+                { t: "Strong and stubborn — a leader, even when it's hard.", c: "oya" },
+                { t: "Brave and curious, always asking one more question.", c: "yara" }
+              ]
+            },
+            {
+              q: "Pick a place to spend the evening.",
+              a: [
+                { t: "By the fire, listening and telling the old stories.", c: "amara" },
+                { t: "At the training ground, spear in hand, keeping the old skills sharp.", c: "jabari" },
+                { t: "Walking the edge of the village, making sure everyone is safe.", c: "oya" },
+                { t: "Up in the trees with my best friend, laughing where no elder can hear.", c: "zola" }
+              ]
+            }
+          ];
+          var RESULTS = {
+            yara: { name: "Yara", line: "Brave, curious, and caught between two worlds. You want to belong — and you'll earn it your own way." },
+            oya: { name: "Oya", line: "Strong, protective, and born to lead. The village is safe because you stand watch over it." },
+            zola: { name: "Zola", line: "Loyal, reckless, and the best tracker around. Your friends always know where they stand with you." },
+            jabari: { name: "Jabari", line: "Proud, traditional, and unshakable. The old laws are why the village still stands." },
+            amara: { name: "Amara", line: "Calm, wise, and kind. You heal more than wounds — you hold the village together." }
+          };
+          var progress = document.getElementById("quizProgress");
+          var questionEl = document.getElementById("quizQuestion");
+          var answersEl = document.getElementById("quizAnswers");
+          var resultEl = document.getElementById("quizResult");
+          var resultName = document.getElementById("quizResultName");
+          var resultLine = document.getElementById("quizResultLine");
+          var againBtn = document.getElementById("quizAgain");
+          var idx = 0;
+          var scores = { yara: 0, oya: 0, zola: 0, jabari: 0, amara: 0 };
+          function render() {
+            var cur = QUESTIONS[idx];
+            progress.textContent = "Question " + (idx + 1) + " of " + QUESTIONS.length;
+            questionEl.textContent = cur.q;
+            answersEl.innerHTML = "";
+            resultEl.hidden = true;
+            cur.a.forEach(function (opt) {
+              var b = document.createElement("button");
+              b.type = "button";
+              b.textContent = opt.t;
+              b.addEventListener("click", function () {
+                scores[opt.c]++;
+                idx++;
+                if (idx < QUESTIONS.length) render();
+                else showResult();
+              });
+              answersEl.appendChild(b);
+            });
+          }
+          function showResult() {
+            var best = null, bestScore = -1;
+            Object.keys(scores).forEach(function (k) {
+              if (scores[k] > bestScore) { bestScore = scores[k]; best = k; }
+            });
+            var r = RESULTS[best];
+            progress.textContent = "Your result";
+            questionEl.textContent = "";
+            answersEl.innerHTML = "";
+            resultName.textContent = r.name;
+            resultLine.textContent = r.line;
+            resultEl.hidden = false;
+          }
+          againBtn.addEventListener("click", function () {
+            idx = 0;
+            scores = { yara: 0, oya: 0, zola: 0, jabari: 0, amara: 0 };
+            render();
+          });
+          render();
+        })();
+
+        /* ---------- Map + portraits: open the same lightbox ---------- */
+        (function () {
+          var lb = document.getElementById("picLightbox");
+          var lbImg = document.getElementById("lbImg");
+          var lbTitle = document.getElementById("lbTitle");
+          if (!lb || !lbImg) return;
+          function openLb(img) {
+            lbImg.src = img.getAttribute("data-full") || img.src;
+            lbImg.alt = img.alt || "";
+            if (lbTitle) lbTitle.textContent = img.getAttribute("data-caption") || img.alt || "";
+            lb.hidden = false;
+            lb.classList.add("open");
+          }
+          document.addEventListener("click", function (e) {
+            var t = e.target;
+            if (!t || !t.closest) return;
+            if (t.closest("#picGrid")) return;
+            var img = t.closest("img[data-full]");
+            if (img) { openLb(img); return; }
+            var btn = t.closest(".view-btn");
+            if (btn) {
+              var fig = btn.closest("figure");
+              var im = fig && fig.querySelector("img[data-full]");
+              if (im) openLb(im);
+            }
           });
         })();
       })();
