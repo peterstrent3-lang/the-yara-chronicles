@@ -86,7 +86,11 @@
         background: var(--accent); color: #fff; text-decoration: none;
         font-size: 14px; font-weight: 700; padding: 7px 14px; border-radius: 999px;
       }
-      @media (max-width: 719px) { .topnav nav { display: none; } }
+      @media (max-width: 719px) {
+        .topnav-inner { flex-wrap: wrap; gap: 4px 12px; padding-bottom: 8px; }
+        .topnav nav { display: flex; order: 3; flex-basis: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
+        .topnav nav a { padding: 8px 10px; background: var(--surface-2); }
+      }
       @media (prefers-color-scheme: dark) { .topnav .readlink { color: #101a12; } }
 
       .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
