@@ -1838,6 +1838,16 @@
 
         var index = 0, playing = false, started = false, soundOn = true, timer = null;
 
+        /* Preload every scene image and narration clip up front, so a scene
+           change never has to fetch its picture mid-sentence: without this,
+           the new image pops in partway through its zoom animation and the
+           card looks distorted for a moment, right as the narrator starts
+           the scene. */
+        SCENES.forEach(function (s) {
+          var im = new Image(); im.src = s.img;
+          var au = new Audio(); au.preload = "auto"; au.src = s.audio;
+        });
+
         SCENES.forEach(function (s, i) {
           var seg = document.createElement("div");
           seg.innerHTML = '<div class="fill"></div>';
