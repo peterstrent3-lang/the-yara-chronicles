@@ -1770,6 +1770,11 @@
         "use strict";
 
         /* ---------- Trailer ---------- */
+        /* How many chapters are written. Update this ONE number whenever a new
+           chapter is finished, and re-record trailer scene 6 (its narration
+           says the number out loud, so audio cannot update itself). */
+        var CHAPTERS_WRITTEN = 6;
+
         var SCENES = [
           {
             img: "assets/trailer-village.webp",
@@ -1874,7 +1879,7 @@
             caption.innerHTML =
               '<p class="ck">' + s.kicker + "</p>" +
               '<p class="cl big">Daughter of Two Worlds</p>' +
-              '<p class="csub">20 chapters planned · 6 written · A secret that has to stay secret</p>' +
+              '<p class="csub">20 chapters planned · ' + CHAPTERS_WRITTEN + ' written · A secret that has to stay secret</p>' +
               '<p class="csub2">Now being written</p>';
           } else {
             caption.innerHTML =
