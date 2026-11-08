@@ -1811,6 +1811,7 @@
           },
           {
             img: "assets/trailer-danger.webp",
+            pos: "35% center",
             alt: "A trail camera with blinking red lights strapped to a jungle tree at night, watched from the shadows by a huntress in bone-and-gold armor",
             kicker: "Someone is watching",
             line: "A boot print. A snare line. A camera, blinking red in the dark.",
@@ -1873,6 +1874,7 @@
           fresh.src = s.img;
           fresh.alt = s.alt;
           fresh.className = "scene " + (index % 2 === 0 ? "zoom-in" : "zoom-out") + (s.titleCard ? " titlecard" : "");
+          if (s.pos) fresh.style.objectPosition = s.pos;
           img.replaceWith(fresh);
           img = fresh;
 
