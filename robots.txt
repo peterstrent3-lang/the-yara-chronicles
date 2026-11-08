@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://peterstrent3-lang.github.io/the-yara-chronicles/sitemap.xml
