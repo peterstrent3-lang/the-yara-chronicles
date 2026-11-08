@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="How the Vey'kar speak, sing, and remember — a fun side page for The Yara Chronicles." />
+    <link rel="icon" href="data:," />
+    <title>Language & Culture · The Yara Chronicles</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f3eede;
+        --bg-deep: #e9e0c8;
+        --surface: #fbf7ea;
+        --surface-2: #efe7d0;
+        --text: #1d2a1e;
+        --dim: #5d6b58;
+        --border: #d8cbab;
+        --accent: #14532d;
+        --accent-soft: #dcead9;
+        --gold: #a97f14;
+        --gold-bright: #d9b64a;
+        --rust: #b4552d;
+        --ink-on-gold: #221a02;
+        --radius: 10px;
+        --serif: "Iowan Old Style", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #101a12;
+          --bg-deep: #0a120c;
+          --surface: #18251a;
+          --surface-2: #1e2f20;
+          --text: #ece5cd;
+          --dim: #a3ad97;
+          --border: #33402f;
+          --accent: #7fc98f;
+          --accent-soft: #22382a;
+          --gold: #d9b64a;
+          --gold-bright: #d9b64a;
+          --rust: #e08a5f;
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.55;
+      }
+      .font-display { font-family: var(--serif); }
+      img { max-width: 100%; }
+      a { color: var(--accent); }
+      :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+      /* ---------- top nav ---------- */
+      .topnav {
+        position: sticky; top: 0; z-index: 40;
+        background: color-mix(in srgb, var(--bg) 92%, transparent);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--border);
+      }
+      .topnav-inner {
+        max-width: 1080px; margin: 0 auto; padding: 0 16px;
+        display: flex; align-items: center; gap: 18px; min-height: 52px;
+      }
+      .topnav .brand {
+        font-family: var(--serif); font-weight: 700; font-size: 17px;
+        color: var(--text); text-decoration: none; white-space: nowrap;
+      }
+      .topnav .brand span { color: var(--gold); }
+      .topnav nav { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+      .topnav nav::-webkit-scrollbar { display: none; }
+      .topnav nav a {
+        color: var(--dim); text-decoration: none; font-size: 14px; font-weight: 600;
+        padding: 6px 9px; border-radius: 6px; white-space: nowrap;
+      }
+      .topnav nav a:hover { color: var(--text); background: var(--surface-2); }
+      .topnav .readlink {
+        margin-left: auto; flex-shrink: 0;
+        background: var(--accent); color: #fff; text-decoration: none;
+        font-size: 14px; font-weight: 700; padding: 7px 14px; border-radius: 999px;
+      }
+      @media (max-width: 719px) {
+        .topnav-inner { flex-wrap: wrap; gap: 4px 12px; padding-bottom: 8px; }
+        .topnav nav { display: flex; order: 3; flex-basis: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
+        .topnav nav a { padding: 8px 10px; background: var(--surface-2); }
+      }
+      @media (prefers-color-scheme: dark) { .topnav .readlink { color: #101a12; } }
+
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+      .narrow { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+      /* ---------- hero ---------- */
+      .hero { border-bottom: 1px solid var(--border); background: var(--bg-deep); }
+      .hero-grid {
+        max-width: 1080px; margin: 0 auto; padding: 34px 16px 40px;
+        display: grid; gap: 28px; align-items: center;
+      }
+      @media (min-width: 860px) { .hero-grid { grid-template-columns: 1.05fr 0.95fr; padding-top: 48px; } }
+      .kicker {
+        font-size: 13px; font-weight: 700; letter-spacing: 0.18em;
+        text-transform: uppercase; color: var(--gold); margin: 0;
+      }
+      .hero h1 {
+        font-family: var(--serif); font-size: clamp(38px, 6vw, 58px);
+        line-height: 1.05; margin: 10px 0 4px; font-weight: 700;
+      }
+      .hero .booktitle {
+        font-family: var(--serif); font-size: clamp(21px, 3vw, 27px);
+        font-style: italic; color: var(--accent); margin: 0 0 14px;
+      }
+      .hero .lede { font-size: 17px; line-height: 1.6; margin: 0 0 18px; max-width: 34em; }
+      .hero .byline { color: var(--dim); font-size: 15px; margin: 0 0 20px; }
+      .hero .byline strong { color: var(--text); }
+      .cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
+      .btn {
+        display: inline-block; text-decoration: none; font-weight: 700; font-size: 15px;
+        padding: 11px 18px; border-radius: 999px; border: 1px solid transparent;
+      }
+      .btn-primary { background: var(--gold-bright); color: var(--ink-on-gold); }
+      .btn-ghost { border-color: var(--border); color: var(--text); background: var(--surface); }
+      .hero figure { margin: 0; }
+      .hero figure img {
+        width: 100%; height: auto; max-height: 520px; object-fit: cover; object-position: top;
+        border-radius: 14px; border: 1px solid var(--border); display: block;
+      }
+      .hero figcaption { color: var(--dim); font-size: 13px; margin-top: 8px; }
+      .stats {
+        display: flex; flex-wrap: wrap; gap: 10px 34px;
+        border-top: 1px solid var(--border); padding: 18px 0 4px; margin-top: 26px;
+      }
+      .stats div { font-size: 14px; color: var(--dim); }
+      .stats strong { display: block; font-family: var(--serif); font-size: 24px; color: var(--text); line-height: 1.1; }
+      .progress { height: 8px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px; overflow: hidden; margin-top: 14px; }
+      .progress > div { height: 100%; width: 30%; background: var(--accent); }
+
+      /* ---------- sections ---------- */
+      section.block { padding: 46px 0 8px; }
+      section.block + section.block { border-top: 1px solid var(--border); margin-top: 38px; }
+      h2.section-title { font-family: var(--serif); font-size: clamp(27px, 4vw, 34px); margin: 6px 0 8px; line-height: 1.15; }
+      .section-intro { font-size: 16.5px; line-height: 1.65; max-width: 46em; margin: 0 0 8px; }
+      .section-intro + .section-intro { margin-top: 10px; }
+
+      /* ---------- pictures (concept art) ---------- */
+      .pic-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 4px; }
+      .pic-filter {
+        font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
+        padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border);
+        background: var(--surface); color: var(--text);
+      }
+      .pic-filter[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+      .pic-status { font-size: 14px; color: var(--dim); margin: 8px 0 0; min-height: 1.4em; }
+      .pic-grid {
+        display: grid; gap: 20px; margin-top: 18px;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      }
+      .pic-card {
+        margin: 0; background: var(--surface); border: 1px solid var(--border);
+        border-radius: 12px; overflow: hidden;
+      }
+      .pic-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; cursor: pointer; }
+      .pic-card figcaption { padding: 14px 16px 16px; }
+      .pic-card h3 { font-family: var(--serif); font-size: 19px; margin: 0 0 4px; }
+      .pic-card .mood { font-size: 13px; font-weight: 700; color: var(--gold); }
+      .pic-card p { font-size: 15px; margin: 8px 0 0; }
+      .pic-card .view-btn {
+        margin-top: 10px; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
+        padding: 7px 13px; border-radius: 999px; border: 1px solid var(--border);
+        background: var(--surface-2); color: var(--text);
+      }
+      .pic-note {
+        margin-top: 18px; padding: 12px 16px; border-radius: 10px;
+        background: var(--surface); border: 1px solid var(--border);
+        font-size: 15px; color: var(--dim); max-width: 46em;
+      }
+      .pic-lightbox {
+        position: fixed; inset: 0; z-index: 100; display: none;
+        align-items: center; justify-content: center; flex-direction: column; gap: 10px;
+        background: rgba(0, 0, 0, 0.88); padding: 20px;
+      }
+      .pic-lightbox.open { display: flex; }
+      .pic-lightbox img { max-width: 100%; max-height: 78vh; border-radius: 10px; }
+      .pic-lightbox figcaption { color: #f2ecd9; max-width: 640px; text-align: center; font-size: 15px; }
+      .pic-lightbox .lb-close {
+        font: inherit; font-weight: 700; cursor: pointer; padding: 8px 16px;
+        border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.4);
+        background: transparent; color: #fff;
+      }
+
+      /* ---------- map, portraits, quiz, downloads ---------- */
+      .map-figure { margin: 18px 0 0; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+      .map-figure img { display: block; width: 100%; cursor: pointer; }
+      .map-figure figcaption { padding: 14px 16px 16px; }
+      .map-figure h3 { font-family: var(--serif); font-size: 19px; margin: 0 0 4px; }
+      .map-figure p { font-size: 15px; margin: 8px 0 0; }
+      .map-figure .view-btn { margin-top: 10px; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; padding: 7px 13px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); }
+      .pic-card.portrait img { aspect-ratio: 3 / 4; }
+      .quiz { margin-top: 18px; padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; max-width: 640px; }
+      .quiz-progress { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0 0 8px; }
+      .quiz-q { font-family: var(--serif); font-size: 21px; margin: 0 0 14px; line-height: 1.35; }
+      .quiz-answers { display: grid; gap: 10px; }
+      .quiz-answers button { text-align: left; font: inherit; font-size: 15px; line-height: 1.45; cursor: pointer; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); }
+      .quiz-answers button:hover { border-color: var(--accent); }
+      .quiz-result { margin-top: 6px; }
+      .quiz-result h3 { font-size: 26px; margin: 4px 0 8px; }
+      .quiz-result p { font-size: 16px; line-height: 1.6; }
+      .quiz-result .btn { margin-top: 12px; }
+      .dl-list { list-style: none; margin: 18px 0 0; padding: 0; max-width: 640px; }
+      .dl-list li { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--border); }
+      .dl-list a { font-weight: 700; color: var(--text); }
+      .dl-list span { font-size: 14px; color: var(--dim); }
+
+      /* ---------- announcements ---------- */
+      .announce-list { list-style: none; margin: 18px 0 0; padding: 0; max-width: 760px; }
+      .announce-list li {
+        padding: 14px 0; border-top: 1px solid var(--border);
+      }
+      .announce-list li:first-child { border-top: none; }
+      .announce-list time { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+      .announce-list h3 { font-family: var(--serif); font-size: 19px; margin: 4px 0; }
+      .announce-list p { margin: 0; font-size: 15.5px; }
+
+      /* ---------- trailer ---------- */
+      .trailer-band { background: #060a06; color: #f2ecd9; margin-top: 38px; padding: 44px 0 40px; }
+      .trailer-band .kicker { color: var(--gold-bright); }
+      .trailer-band h2 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 6px 0 4px; color: #fff; }
+      .trailer-band .sub { color: rgba(255,255,255,0.65); font-size: 14px; margin: 0; }
+      .player {
+        position: relative; margin-top: 20px; border-radius: 12px; overflow: hidden;
+        background: #0a0f0a; box-shadow: 0 18px 50px rgba(0,0,0,0.5); outline: 1px solid rgba(255,255,255,0.15);
+      }
+      .segments { position: absolute; inset: 12px 12px auto 12px; z-index: 20; display: flex; gap: 6px; }
+      .segments > div { height: 4px; flex: 1; border-radius: 999px; background: rgba(255,255,255,0.25); overflow: hidden; }
+      .segments .fill { height: 100%; background: var(--gold-bright); }
+      .segments .fill.done { width: 100%; }
+      .segments .fill.anim { animation: trailer-progress linear forwards; }
+      .stage { position: relative; aspect-ratio: 4 / 5; width: 100%; }
+      @media (min-width: 640px) { .stage { aspect-ratio: 16 / 9; } }
+      .stage img.scene {
+        position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      }
+      .stage img.zoom-in { animation: trailer-zoom-in 6s ease-out forwards; }
+      .stage img.zoom-out { animation: trailer-zoom-out 6s ease-out forwards; }
+      .stage img.titlecard { opacity: 0.4; }
+      .stage .shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.08) 55%, rgba(0,0,0,0.3)); }
+      .stage .bar-top, .stage .bar-bottom { position: absolute; left: 0; right: 0; height: 34px; background: #000; z-index: 5; }
+      .stage .bar-top { top: 0; } .stage .bar-bottom { bottom: 0; }
+      .caption {
+        position: absolute; left: 0; right: 0; bottom: 34px; z-index: 6;
+        padding: 0 22px 20px; text-align: center; animation: trailer-caption 1.1s ease-out both;
+      }
+      .caption .ck { font-size: 13px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-bright); margin: 0; }
+      .caption .cl { font-family: var(--serif); font-size: clamp(21px, 3.4vw, 30px); font-weight: 600; line-height: 1.3; color: #fff; margin: 8px auto 0; max-width: 22em; }
+      .caption .big { font-size: clamp(32px, 5.4vw, 48px); font-weight: 700; }
+      .caption .csub { color: rgba(255,255,255,0.9); font-size: 15px; margin: 10px 0 0; }
+      .caption .csub2 { color: rgba(255,255,255,0.7); font-size: 12.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin: 4px 0 0; }
+      .bigplay {
+        position: absolute; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center;
+        background: transparent; border: 0; cursor: pointer; width: 100%;
+      }
+      .bigplay span {
+        width: 78px; height: 78px; border-radius: 999px; background: var(--gold-bright); color: #000;
+        display: flex; align-items: center; justify-content: center; font-size: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5); outline: 4px solid rgba(0,0,0,0.3);
+      }
+      .tcontrols { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; }
+      .tcontrols button {
+        font: inherit; font-size: 14px; cursor: pointer; border-radius: 8px; padding: 9px 14px;
+        border: 1px solid rgba(255,255,255,0.3); background: transparent; color: #fff;
+      }
+      .tcontrols button:disabled { opacity: 0.4; cursor: default; }
+      .tcontrols .main { background: var(--gold-bright); border-color: var(--gold-bright); color: #000; font-weight: 700; font-size: 15px; }
+      .tcontrols .scene-label { margin-left: auto; font-size: 13.5px; color: rgba(255,255,255,0.6); }
+      .thumbs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 14px; }
+      .thumbs button { padding: 0; border: 0; background: none; cursor: pointer; border-radius: 6px; overflow: hidden; outline: 2px solid transparent; opacity: 0.55; }
+      .thumbs button[aria-pressed="true"] { outline-color: var(--gold-bright); opacity: 1; }
+      .thumbs button:hover { opacity: 1; }
+      .thumbs img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+      .trailer-note { color: rgba(255,255,255,0.55); font-size: 14px; margin: 14px 0 0; max-width: 46em; }
+      .transcript { border: 1px solid rgba(255,255,255,0.22); border-radius: 10px; padding: 14px 16px; margin-top: 16px; }
+      .transcript summary { cursor: pointer; font-weight: 700; color: #fff; }
+      .transcript ol { margin: 12px 0 2px; padding-left: 22px; color: rgba(255,255,255,0.85); }
+      .transcript li { margin: 6px 0; }
+      @keyframes trailer-zoom-in { from { transform: scale(1) translateX(0); } to { transform: scale(1.12) translateX(-1.5%); } }
+      @keyframes trailer-zoom-out { from { transform: scale(1.12) translateY(-1%); } to { transform: scale(1) translateY(0); } }
+      @keyframes trailer-caption { 0% { opacity: 0; transform: translateY(14px); } 14% { opacity: 1; transform: translateY(0); } 100% { opacity: 1; } }
+      @keyframes trailer-progress { from { width: 0%; } to { width: 100%; } }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .stage img.zoom-in, .stage img.zoom-out, .caption, .segments .fill.anim { animation: none; }
+      }
+
+      /* ---------- listen card ---------- */
+      .listen-card {
+        background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+        padding: 22px; display: grid; gap: 18px;
+      }
+      @media (min-width: 760px) { .listen-card { grid-template-columns: 1fr 1fr; align-items: start; } }
+      .listen-card h3 { font-family: var(--serif); font-size: 22px; margin: 4px 0 6px; }
+      .listen-card p { margin: 0; }
+      audio { width: 100%; }
+      .listen-card audio { margin-top: 12px; }
+      details.transcript-light { margin-top: 12px; }
+      details.transcript-light summary { cursor: pointer; font-weight: 700; font-size: 15px; }
+      details.transcript-light p { margin-top: 8px; color: var(--text); line-height: 1.65; }
+      .voices { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 7px; font-size: 15px; }
+      .voices li { display: flex; gap: 10px; align-items: baseline; }
+      .voices .who { font-weight: 700; min-width: 86px; }
+      .voices .voice { color: var(--dim); }
+
+      /* ---------- cast ---------- */
+      .cast-grid { display: grid; gap: 16px; margin-top: 20px; }
+      @media (min-width: 760px) { .cast-grid { grid-template-columns: 1fr 1fr; } }
+      .cast-card {
+        background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+        border-top: 3px solid var(--gold);
+      }
+      .cast-card.threat { border-top-color: var(--rust); }
+      .cast-card h3 { font-family: var(--serif); font-size: 21px; margin: 0; }
+      .cast-card .role { font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 3px 0 10px; }
+      .cast-card.threat .role { color: var(--rust); }
+      .cast-card p { margin: 0 0 9px; font-size: 15.5px; line-height: 1.6; }
+      .cast-card p:last-child { margin-bottom: 0; }
+      .cast-card .want { font-size: 14.5px; color: var(--dim); }
+      .cast-card .want strong { color: var(--text); }
+
+      /* ---------- world ---------- */
+      .laws { list-style: none; counter-reset: law; margin: 18px 0 0; padding: 0; display: grid; gap: 12px; }
+      @media (min-width: 760px) { .laws { grid-template-columns: 1fr 1fr; } }
+      .laws li {
+        counter-increment: law; background: var(--surface); border: 1px solid var(--border);
+        border-radius: 10px; padding: 16px 16px 16px 58px; position: relative; font-size: 15.5px; line-height: 1.55;
+      }
+      .laws li::before {
+        content: counter(law); position: absolute; left: 16px; top: 13px;
+        font-family: var(--serif); font-size: 24px; font-weight: 700; color: var(--gold);
+      }
+      .laws li strong { display: block; font-family: var(--serif); font-size: 17px; margin-bottom: 2px; }
+      .two-col { display: grid; gap: 22px; margin-top: 20px; }
+      @media (min-width: 760px) { .two-col { grid-template-columns: 1fr 1fr; } }
+      .mini-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+      .mini-card h3 { font-family: var(--serif); font-size: 20px; margin: 0 0 8px; }
+      .mini-card p, .mini-card li { font-size: 15.5px; line-height: 1.6; }
+      .mini-card ul { margin: 6px 0 0; padding-left: 20px; }
+      .mini-card li { margin: 5px 0; }
+      .thread-box {
+        margin-top: 22px; border: 1px dashed var(--gold); border-radius: 12px; padding: 18px 20px;
+        background: color-mix(in srgb, var(--gold-bright) 7%, var(--surface));
+      }
+      .thread-box h3 { font-family: var(--serif); margin: 0 0 6px; font-size: 19px; }
+      .thread-box p { margin: 0; font-size: 15.5px; line-height: 1.6; }
+
+      /* ---------- outline ---------- */
+      .acts { display: grid; gap: 16px; margin-top: 20px; }
+      @media (min-width: 900px) { .acts { grid-template-columns: repeat(3, 1fr); } }
+      .act-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+      .act-card h3 { font-family: var(--serif); font-size: 19px; margin: 0; }
+      .act-card .range { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin: 3px 0 10px; }
+      .act-card ul { margin: 0; padding-left: 19px; }
+      .act-card li { font-size: 15px; line-height: 1.55; margin: 7px 0; }
+
+      /* ---------- chapters ---------- */
+      .chapter-card { scroll-margin-top: 68px; }
+      .latest-line { font-size: 15.5px; line-height: 1.6; margin: 14px 0 0; max-width: 36em; }
+      .latest-line a { font-weight: 700; }
+      .chapter-index {
+        background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+        padding: 18px 20px 10px; margin-top: 18px;
+      }
+      .chapter-index h3 { font-family: var(--serif); font-size: 21px; margin: 0 0 4px; }
+      .chapter-index .ci-note { font-size: 15px; color: var(--dim); margin: 0 0 10px; line-height: 1.55; }
+      .chapter-index ol { list-style: none; margin: 0; padding: 0; }
+      .chapter-index li { border-top: 1px solid var(--border); }
+      .chapter-index li a {
+        display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+        padding: 12px 4px; text-decoration: none; color: var(--text); border-radius: 6px;
+      }
+      .chapter-index li a:hover { background: var(--surface-2); }
+      .chapter-index .ci-num {
+        font-size: 12.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+        color: var(--gold); white-space: nowrap; min-width: 74px;
+      }
+      .chapter-index .ci-title { font-family: var(--serif); font-size: 17.5px; font-weight: 700; flex: 1 1 200px; }
+      .chapter-index .ci-time { font-size: 13.5px; color: var(--dim); font-weight: 600; white-space: nowrap; }
+      .new-badge {
+        display: inline-block; background: var(--gold-bright); color: var(--ink-on-gold);
+        font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+        padding: 2px 8px; border-radius: 999px; vertical-align: 2px; white-space: nowrap;
+      }
+      .chapter-card {
+        background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+        padding: 22px; margin-top: 18px;
+      }
+      .chapter-card.is-new { border-color: var(--gold); border-width: 2px; }
+      .chapter-card .ch-kicker { font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0; }
+      .chapter-card h3 { font-family: var(--serif); font-size: 25px; margin: 4px 0 6px; }
+      .chapter-card .summary { margin: 0; font-size: 16px; line-height: 1.65; max-width: 44em; }
+      .audio-row {
+        margin-top: 16px; background: var(--accent-soft); border-radius: 10px; padding: 14px 16px;
+      }
+      .audio-row .a-head { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+      .audio-row .a-head span:last-child { color: var(--dim); font-weight: 600; white-space: nowrap; }
+      /* ---------- chapter audio players ---------- */
+      .autoplay-bar {
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+        background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+        padding: 14px 16px; margin-top: 18px;
+      }
+      .autoplay-bar .ap-text { flex: 1 1 240px; }
+      .autoplay-bar .ap-text strong { font-family: var(--serif); font-size: 17px; display: block; }
+      .autoplay-bar .ap-text span { font-size: 14px; color: var(--dim); }
+      .ap-switch {
+        display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+        background: none; border: 0; padding: 6px 2px; font: inherit; color: var(--text);
+      }
+      .ap-switch .track {
+        width: 52px; height: 30px; border-radius: 999px; flex-shrink: 0;
+        background: var(--surface-2); border: 1px solid var(--border); position: relative;
+        transition: background 0.18s ease;
+      }
+      .ap-switch .track::after {
+        content: ""; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px;
+        border-radius: 999px; background: var(--dim); transition: transform 0.18s ease, background 0.18s ease;
+      }
+      .ap-switch[aria-checked="true"] .track { background: var(--accent); border-color: var(--accent); }
+      .ap-switch[aria-checked="true"] .track::after { transform: translateX(22px); background: #fff; }
+      @media (prefers-color-scheme: dark) { .ap-switch[aria-checked="true"] .track::after { background: #101a12; } }
+      .ap-switch .ap-state { font-weight: 700; font-size: 15px; min-width: 28px; text-align: left; }
+      .audio-row audio { width: 100%; display: block; margin-top: 4px; }
+      /* ---------- -15s / +15s skip buttons (simple direct seek) ---------- */
+      .skip-row { display: flex; gap: 10px; margin-top: 10px; }
+      .skip-btn {
+        flex: 1 1 0; min-height: 48px; padding: 10px 14px;
+        font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+        color: var(--text); background: var(--surface);
+        border: 1.5px solid var(--border); border-radius: 10px;
+      }
+      .skip-btn:active { background: var(--accent-soft); border-color: var(--gold); }
+      /* ---------- now playing bar (always reachable stop) ---------- */
+      .now-bar {
+        position: fixed; left: 12px; right: 12px; z-index: 80;
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        max-width: 760px; margin: 0 auto;
+        display: flex; align-items: center; gap: 10px;
+        background: var(--surface); border: 1.5px solid var(--gold); border-radius: 14px;
+        padding: 10px 12px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.30);
+      }
+      .now-bar[hidden] { display: none !important; }
+      .now-info { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+      .now-kicker {
+        font-size: 11px; font-weight: 800; letter-spacing: 0.14em;
+        text-transform: uppercase; color: var(--gold);
+      }
+      .now-title {
+        font-family: var(--serif); font-weight: 700; font-size: 16.5px; line-height: 1.25;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+      .now-btn {
+        min-height: 48px; padding: 10px 16px; border-radius: 999px; flex-shrink: 0;
+        font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+        border: 1px solid var(--border); background: var(--surface-2); color: var(--text);
+        display: inline-flex; align-items: center; gap: 6px;
+      }
+      .now-btn.primary { background: var(--gold-bright); border-color: transparent; color: var(--ink-on-gold); }
+      .now-btn.stop { border-color: var(--rust); color: var(--rust); background: var(--surface); }
+      body.has-now-bar { padding-bottom: 96px; }
+      @media (max-width: 480px) {
+        .now-btn { padding: 10px 13px; font-size: 14.5px; }
+        .now-title { font-size: 15.5px; }
+      }
+      details.reader { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 14px; }
+      details.reader > summary {
+        cursor: pointer; font-weight: 700; font-size: 15.5px; color: var(--accent);
+        list-style: none; display: inline-flex; align-items: center; gap: 8px;
+      }
+      details.reader > summary::-webkit-details-marker { display: none; }
+      details.reader > summary::before { content: "▸"; color: var(--gold); }
+      details.reader[open] > summary::before { content: "▾"; }
+      .prose { font-family: var(--serif); font-size: 17.5px; line-height: 1.8; max-width: 38em; margin-top: 14px; }
+      .prose p { margin: 0 0 1.05em; }
+      .prose .lede-line { font-style: italic; color: var(--dim); font-size: 16.5px; }
+      .prose .scene-break { text-align: center; letter-spacing: 0.5em; color: var(--gold); margin: 1.4em 0; }
+      .prose .end-mark { text-align: center; color: var(--dim); font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 2em; }
+      .tap-hint {
+        font-family: var(--sans); font-size: 14.5px; line-height: 1.55; color: var(--dim);
+        background: var(--accent-soft); border-radius: 8px; padding: 10px 14px; margin: 14px 0 0; max-width: 38em;
+      }
+      .tap-hint strong { color: var(--accent); }
+      .prose p[data-t] {
+        cursor: pointer; border-radius: 6px; padding: 3px 10px; margin-left: -10px; margin-right: -10px;
+        transition: background-color 0.25s ease, box-shadow 0.25s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .prose p[data-t]:hover { background: var(--accent-soft); }
+      .prose p[data-t]:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+      .prose p.tap-active {
+        background: var(--accent-soft);
+        box-shadow: inset 3px 0 0 var(--gold);
+      }
+      .road-ahead { margin-top: 20px; }
+      .road-ahead ul { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
+      @media (min-width: 760px) { .road-ahead ul { grid-template-columns: 1fr 1fr; } }
+      .road-ahead li { font-size: 15px; color: var(--dim); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; }
+      .road-ahead li strong { color: var(--text); font-family: var(--serif); }
+
+      /* ---------- disclaimer / footer ---------- */
+      .disclaimer { font-size: 14.5px; line-height: 1.7; color: var(--dim); max-width: 46em; }
+      .disclaimer p { margin: 0 0 10px; }
+      footer { border-top: 1px solid var(--border); margin-top: 44px; padding: 26px 0 40px; }
+      footer .f-brand { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--text); margin: 0 0 4px; }
+      footer p { color: var(--dim); font-size: 14px; margin: 4px 0; }
+      .word-list { list-style: none; padding: 0; }
+      .word-list li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+      .word-list .say { color: var(--gold); font-style: italic; }
+
+      .topnav nav a.current { color: var(--text); background: var(--surface-2); }
+      /* ---------- on this page jump links ---------- */
+      .page-jumps {
+        background: var(--surface-2); border-bottom: 1px solid var(--border);
+        overflow-x: auto; scrollbar-width: none;
+      }
+      .page-jumps::-webkit-scrollbar { display: none; }
+      .page-jumps-inner {
+        max-width: 1080px; margin: 0 auto; padding: 10px 16px;
+        display: flex; align-items: center; gap: 4px; white-space: nowrap;
+      }
+      .page-jumps span { font-size: 13px; font-weight: 700; color: var(--dim); margin-right: 6px; }
+      .page-jumps a {
+        color: var(--dim); text-decoration: none; font-size: 14px; font-weight: 600;
+        padding: 6px 10px; border-radius: 999px; background: var(--surface);
+        border: 1px solid var(--border);
+      }
+      .page-jumps a:hover { color: var(--text); }
+    </style>
+    <!--
+      VISITS / ANALYTICS — PLACEHOLDER, NOT ACTIVE YET
+      To count visits over time, create a free Google Analytics 4 property at
+      https://analytics.google.com, copy its Measurement ID (it looks like G-XXXXXXXXXX),
+      and paste the Google tag here, replacing G-XXXXXXXXXX below. Until then, visit
+      counts are available in the repo at Insights > Traffic (last 14 days):
+      https://github.com/peterstrent3-lang/the-yara-chronicles/pulse
+    -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+  </head>
+
+  <body>
+    <header class="topnav">
+      <div class="topnav-inner">
+        <a class="brand" href="index.html">The Yara <span>Chronicles</span></a>
+        <nav aria-label="Site pages">
+          <a href="index.html">The Story</a>
+          <a href="pictures.html">Pictures</a>
+          <a href="language-culture.html" class="current" aria-current="page">Language & Culture</a>
+          <a href="map.html">Map</a>
+          <a href="portraits.html">Portraits</a>
+          <a href="quiz.html">Quiz</a>
+          <a href="downloads.html">Downloads</a>
+        </nav>
+        <a class="readlink" href="index.html#read">Read the chapters</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ================= LANGUAGE & CULTURE ================= -->
+      <section class="block" id="culture">
+        <div class="wrap">
+          <p class="kicker">Language &amp; culture</p>
+          <h2 class="section-title">How the Vey'kar speak, sing, and remember</h2>
+          <p class="section-intro">A fun side page, to get a feel for Vey'kar life beyond the chapters. The language itself is real in the story — deep, clicking, and musical — and the rituals marked <strong>from the book</strong> are in the chapters. The phrasebook and the songs are playful guesses, imagined for fun, not lines from the book.</p>
+
+          <h3>The language</h3>
+          <p>Vey'kar is a deep language — low voices, clicking sounds, and a musical rise and fall, like a song you can almost follow even when you don't know the words. Yara speaks it and English both. Ayo learned it slowly, and was never any good at the clicks. A few words from the book, and a few imagined ones, to get the sound of it:</p>
+          <ul class="word-list">
+            <li><strong>Kijani</strong> <span class="say">kee-JAH-nee</span> — “green”, the jungle itself. The village's name, from the book.</li>
+            <li><strong>Vey'kar</strong> <span class="say">VAY-kar</span> — the people. The name they call themselves, from the book.</li>
+            <li><strong>Ayo</strong> <span class="say">AH-yo</span> — the name Oya gave Jonah. What it means, she has never said.</li>
+            <li><strong>Sha'ka</strong> <span class="say">SHAH-kah</span> — “I see you.” A greeting, imagined for fun.</li>
+            <li><strong>Tor'ka</strong> <span class="say">TOR-kah</span> — “thank you”, imagined for fun.</li>
+            <li><strong>Vel'na</strong> <span class="say">vel-NAH</span> — “walk quietly”, imagined for fun.</li>
+            <li><strong>Kar'thun</strong> <span class="say">kar-TOON</span> — “the hunt begins”, imagined for fun.</li>
+            <li><strong>Jin'ka</strong> <span class="say">jin-KAH</span> — “the fire is lit — gather”, imagined for fun.</li>
+            <li><strong>Na'vor</strong> <span class="say">nah-VOR</span> — “stay hidden. Keep the secret”, imagined for fun.</li>
+            <li><strong>Tal'hey</strong> <span class="say">tahl-HAY</span> — “good hunting”, imagined for fun.</li>
+          </ul>
+          <p>The little <strong>'</strong> in the middle of a word is a click — a quick snap of the tongue, the way Yara does it without thinking, and the way Ayo never quite managed.</p>
+
+          <h3>The music</h3>
+          <p>Imagined for fun — the book never stops to describe a song, but this is how it might sound in Kijani:</p>
+          <ul>
+            <li><strong>Fire songs.</strong> In the evenings the village gathers around the fire in the temple clearing, and someone starts a low drumbeat — hands on hollow wood, slow and steady — while the others hum underneath, deep enough to feel in your chest. The markings on their skin glow a little brighter with the beat.</li>
+            <li><strong>Bone flutes.</strong> Small flutes carved from fallen branches and bone, played soft, so the jungle doesn't hear. Hunters play them on the trail to pass the time — and to tell each other where they are without shouting.</li>
+            <li><strong>Hunt songs.</strong> Every hunt has a song, sung after, never before — a way of thanking the prey and remembering how it went, so the young ones learn the trail by listening.</li>
+          </ul>
+
+          <h3>The rituals</h3>
+          <p>These are from the book:</p>
+          <ul>
+            <li><strong>The trial.</strong> A hunter is tested before the whole village — Jabari sets it, and it is never easy. Yara's trial is announced at the end of Chapter 6, three days away.</li>
+            <li><strong>The evening fire.</strong> Every evening, the village gathers in the temple clearing. News is shared, hunts are planned, and the young ones listen.</li>
+            <li><strong>Honouring the prey.</strong> The honour code says it plainly: never hunt the weak, never hunt for fun alone, respect your prey. A hunter who forgets that has forgotten what being Vey'kar means.</li>
+            <li><strong>Braid bands.</strong> Hunters wear bone, gold, and iron bands in their braids — each one a story: a hunt, a rank, a clan. Yara's are gold-banded; Zola's are bone beads. You can read a hunter's life in their hair.</li>
+            <li><strong>Bone charms.</strong> A carved bone charm hums when prey is near. Oya kept one engraved with a name she never speaks aloud.</li>
+          </ul>
+          <p class="pic-note">Fun extra — the words and songs are imagined, the rituals are from the book. None of it changes the story. <a href="index.html#read">Back to the story →</a></p>
+        </div>
+      </section>
+
+
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p class="f-brand">The Yara Chronicles</p>
+        <p>Book 1: <em>Daughter of Two Worlds</em> — an original story by BiomassFlood, now being written. 6 of 20 chapters written, plus the prologue.</p>
+        <p>Copyright © 2026 BiomassFlood. All rights reserved.</p>
+        <p>Written by BiomassFlood with AI assistance from Luna for drafting and editing. All characters, worldbuilding, and story decisions are the author's own.</p>
+        <p>This is the public reading edition — new chapters appear here as they're finished.</p>
+      </div>
+    </footer>  </body>
+</html>
