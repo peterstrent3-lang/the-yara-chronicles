@@ -9,16 +9,15 @@ No build step, no server, no database. It works on GitHub Pages as-is.
 ## What's in here
 
 - `index.html` — the whole site: book trailer, story overview, characters,
-  Vey'kar species, Kijani, outline, disclaimer, and the prologue + Chapters 1–6
-  in full text with audiobook players (6 of 20 chapters, 168 min 44 sec total).
-- `assets/` — 19 files: 7 chapter MP3s (prologue 6:39, Ch1 24:18, Ch2 16:46,
-  Ch3 23:02, Ch4 29:22, Ch5 32:42, Ch6 35:53), story-overview + 6 trailer
+  Vey'kar species, Kijani, outline, disclaimer, and the prologue + Chapters 1–7
+  in full text with audiobook players (7 of 20 chapters, 203 min 33 sec total).
+- `assets/` — 20 files: 8 chapter MP3s (prologue 6:44, Ch1 24:18, Ch2 16:43, Ch3 23:00, Ch4 29:29, Ch5 32:35, Ch6 35:53, Ch7 34:50), story-overview + 6 trailer
   narration clips, hero + 4 trailer images.
 - `icon.webp` — site icon (not currently referenced by the page).
 - `.nojekyll` — tells GitHub Pages to serve the files exactly as they are.
 
 Features: click-to-listen read-along (tap any story paragraph and the audio
-jumps to that part — 527 mapped paragraphs), native audio players, autoplay
+jumps to that part — 641 mapped paragraphs), native audio players, autoplay
 toggle (off by default), pause-when-you-leave, and a Now Playing bar.
 
 ## How to deploy (GitHub Pages)
@@ -47,7 +46,7 @@ toggle (off by default), pause-when-you-leave, and a Now Playing bar.
 
 ## Updating the site later
 
-When a new chapter is written (Chapter 7 is next), replace `index.html` and
+When a new chapter is written (Chapter 8 is next), replace `index.html` and
 add the new chapter's MP3 to `assets/` in the repo (same upload flow), and
 the live site updates automatically. The URL stays the same — no new links.
 
