@@ -1,6 +1,6 @@
-# The Yara Chronicles — GitHub Pages site
+# Yara of Kijani — GitHub Pages site
 
-Public website for **The Yara Chronicles**, Book 1: *Daughter of Two Worlds*,
+Public website for **Yara of Kijani**, Book 1: *Daughter of Two Worlds*,
 written by BiomassFlood, with AI assistance from Luna for drafting and editing.
 
 This is a plain static site — one `index.html` plus files under `assets/`.
